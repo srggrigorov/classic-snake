@@ -185,7 +185,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 18.5
+  orthographic size: 18
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -228,8 +228,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10634a3251bd3fe42b6ee29527f96220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maintainWidth: 1
-  adaptPosition: 0
+  _maintainWidth: 1
+  _adaptPosition: 0
 --- !u!1 &115472790
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,6 +242,7 @@ GameObject:
   - component: {fileID: 115472793}
   - component: {fileID: 115472792}
   - component: {fileID: 115472794}
+  - component: {fileID: 115472795}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -379,6 +380,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 2
+--- !u!114 &115472795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115472790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70859d7933c118848b43101300b11ba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scoreText: {fileID: 115472792}
 --- !u!1 &147659499
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,7 +673,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 421452867}
-  - component: {fileID: 421452868}
   m_Layer: 0
   m_Name: SnakeBody
   m_TagString: Untagged
@@ -684,23 +697,6 @@ Transform:
   - {fileID: 1388864934}
   m_Father: {fileID: 8639459746531862515}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &421452868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 421452866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fba1529dcc3641ceb8e9e2b2e3c948cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  touchInput: {fileID: 1284828656}
-  snakeHead: {fileID: 2614100685423224020}
-  snakeMoveDurationSlow: 0.15
-  snakeMoveDurationFast: 0.05
-  snakeLineRenderer: {fileID: 1388864935}
 --- !u!1 &548887980
 GameObject:
   m_ObjectHideFlags: 0
@@ -881,6 +877,7 @@ GameObject:
   - component: {fileID: 876226837}
   - component: {fileID: 876226836}
   - component: {fileID: 876226838}
+  - component: {fileID: 876226839}
   m_Layer: 5
   m_Name: TipScreen
   m_TagString: Untagged
@@ -990,6 +987,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &876226839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876226834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a3e6e486de36d443840fe8e13068dd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startGameButton: {fileID: 876226838}
+  _tipText: {fileID: 2061947912}
 --- !u!1 &1133203187
 GameObject:
   m_ObjectHideFlags: 0
@@ -1140,7 +1151,6 @@ GameObject:
   - component: {fileID: 1284828654}
   - component: {fileID: 1284828653}
   - component: {fileID: 1284828655}
-  - component: {fileID: 1284828656}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1208,19 +1218,6 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
---- !u!114 &1284828656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1284828651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eef8a4ffbf3cbb94e807a1c5effca976, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minSwipeDistance: 50
 --- !u!1 &1388864933
 GameObject:
   m_ObjectHideFlags: 0
@@ -1355,6 +1352,87 @@ LineRenderer:
   m_UseWorldSpace: 0
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!1 &1592112752
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1592112754}
+  - component: {fileID: 1592112753}
+  - component: {fileID: 1592112755}
+  m_Layer: 0
+  m_Name: SceneContext
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1592112753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592112752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89715ad69b973a14899afa2c6730b30b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: 1592112755}
+  _installerPrefabs: []
+  _autoRun: 1
+  OnPreInstall:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPostInstall:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPreResolve:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPostResolve:
+    m_PersistentCalls:
+      m_Calls: []
+  _parentNewObjectsUnderSceneContext: 0
+  _contractNames: []
+  _parentContractNames: []
+--- !u!4 &1592112754
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592112752}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1592112755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592112752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 650a383d9d8d0924386eed2bee2de5f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _snakePartPrefab: {fileID: 2136021437084753164, guid: 6498c1b1b95bc664ba9c858b96797055, type: 3}
+  _snakeHead: {fileID: 2614100685423224020}
+  _food: {fileID: 7570577952929734058}
+  _snakeLineRenderer: {fileID: 1388864935}
 --- !u!1 &1715044139
 GameObject:
   m_ObjectHideFlags: 0
@@ -1877,9 +1955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c84a049150945e4a74b7ccd1c12d9c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tailPartPrefab: {fileID: 2136021437084753164, guid: 6498c1b1b95bc664ba9c858b96797055, type: 3}
-  snakeBody: {fileID: 421452868}
-  tongue: {fileID: 1133203188}
+  _tongue: {fileID: 1133203188}
 --- !u!1 &2753048107137468057
 GameObject:
   m_ObjectHideFlags: 0
@@ -2335,7 +2411,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8639459746531862515}
-  - component: {fileID: 8639459746531862516}
   m_Layer: 0
   m_Name: SnakeLevel
   m_TagString: Untagged
@@ -2365,25 +2440,6 @@ Transform:
   - {fileID: 1647810231315686083}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8639459746531862516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8639459746531862514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7aafac1de5b3414b8c46c8ae016eecc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bordersX: {x: -8, y: 8}
-  bordersY: {x: -13, y: 10}
-  foodItem: {fileID: 7570577952929734058}
-  snakeBody: {fileID: 421452868}
-  tipScreenButton: {fileID: 876226838}
-  tipScreenText: {fileID: 2061947912}
-  scoreText: {fileID: 115472792}
 --- !u!61 &8896081934294723827
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2496,6 +2552,7 @@ BoxCollider2D:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1592112754}
   - {fileID: 8639459746531862515}
   - {fileID: 167753294}
   - {fileID: 1284828654}
